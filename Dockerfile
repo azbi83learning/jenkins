@@ -1,2 +1,4 @@
-FROM httpd:alpine
-RUN echo "<h1>Hello World</h1>" > /usr/local/apache2/htdocs/index.html
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y apache2
+EXPOSE 80
+CMD ["apache2ctl", "-D", "FOREGROUND"]
